@@ -2,6 +2,7 @@
 set -e
 
 IMAGE_NAME=mbullington/emsdk
+EMSCRIPTEN_VERSION=2.0.14
 BUILD_IMAGE_NAME=$IMAGE_NAME:__build
 BUILD_INSTANCE_NAME=mbullington_emsdk__build
 
@@ -32,7 +33,7 @@ docker tag $IMAGE_NAME:latest $IMAGE_NAME:$EMSCRIPTEN_VERSION
 
 echo "Testing the image: building test case"
 cd example
-docker run --rm -v "$PWD:/src" rsms/emsdk:latest emcc hello.c -s WASM=1 -o hello.js
+docker run --rm -v "$PWD:/src" $IMAGE_NAME:$EMSCRIPTEN_VERSION emcc hello.c -s WASM=1 -o hello.js
 if which node >/dev/null; then
   echo node hello.js
   node hello.js

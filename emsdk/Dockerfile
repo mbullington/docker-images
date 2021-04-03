@@ -1,4 +1,4 @@
-FROM emscripten/emsdk:latest
+FROM emscripten/emsdk:2.0.14
 
 ENV EMSCRIPTEN_VERSION 2.0.14
 

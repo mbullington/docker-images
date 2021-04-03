@@ -1,6 +1,6 @@
 # Emscripten SDK docker image
 
-Published as `rsms/emsdk`
+Published as `mbullington/emsdk`
 
 Contains:
 
