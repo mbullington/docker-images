@@ -6,6 +6,8 @@ EMSCRIPTEN_VERSION=2.0.14
 BUILD_IMAGE_NAME=$IMAGE_NAME:__build
 BUILD_INSTANCE_NAME=mbullington_emsdk__build
 
+cd emsdk
+
 # make sure a container with this image is not currently running
 BUILD_CONTAINER_ID=$(docker ps -aqf name=$BUILD_INSTANCE_NAME)
 if [[ "$BUILD_CONTAINER_ID" != "" ]]; then
